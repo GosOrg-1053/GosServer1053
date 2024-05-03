@@ -17,6 +17,7 @@ const UserPhoto = require('../models/User_Photo')
 // const upload = multer({ storage: storage });
 const upload = multer({ dest: 'uploads/' })
 app.post('/add', upload.array('photo', 100), async (req, res) => {
+    console.log('image uploading')
     const userPhotos = await UserPhoto.find({ID:req.body.userId})
     if(userPhotos.length == 0){
         try {
